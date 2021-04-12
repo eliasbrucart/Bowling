@@ -14,7 +14,7 @@ public class Ball : MonoBehaviour
     {
         rb.GetComponent<Rigidbody>();
         transform.position = startPos;
-        force = 0;
+        force = 0.0f;
         isMoving = false;
     }
 
@@ -24,10 +24,20 @@ public class Ball : MonoBehaviour
         {
             ResetPos();
         }
-
         if (Input.GetKey(KeyCode.UpArrow))
         {
-            force += 10;
+            force += 5.0f;
+        }
+        if(force >= 0)
+        {
+            if (Input.GetKey(KeyCode.DownArrow))
+            {
+                force -= 5.0f;
+            }
+        }
+        if(force <= 0)
+        {
+            force = 0.0f;
         }
     }
 
