@@ -22,7 +22,7 @@ public class GameManager : MonoBehaviour
         {
             ball.Right();
         }
-        if (Input.GetKeyDown(KeyCode.Space) && tries <= 3)
+        if (Input.GetKeyDown(KeyCode.Space) && tries <= 3 && tries > 0)
         {
             ball.AddForce();
             tries--;
