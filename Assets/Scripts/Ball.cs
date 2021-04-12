@@ -9,11 +9,12 @@ public class Ball : MonoBehaviour
     public Vector3 startPos;
     public float limitMove;
 
-    private bool isMoving;
+    public bool isMoving;
     void Start()
     {
         rb.GetComponent<Rigidbody>();
         transform.position = startPos;
+        force = 0;
         isMoving = false;
     }
 
@@ -22,6 +23,11 @@ public class Ball : MonoBehaviour
         if(transform.position.z >= limitMove)
         {
             ResetPos();
+        }
+
+        if (Input.GetKey(KeyCode.UpArrow))
+        {
+            force += 10;
         }
     }
 
