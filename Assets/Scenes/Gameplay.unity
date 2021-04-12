@@ -238,8 +238,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: 296343381}
-  force: 1000
+  force: 2500
   startPos: {x: 0, y: 1.31, z: 12.57}
+  limitMove: 79.51
 --- !u!4 &296343384 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 451620, guid: ac1af96fd5e0f4f9e97339b652aa389b,
@@ -1875,7 +1876,7 @@ PrefabInstance:
     - target: {fileID: 8095944838556636775, guid: 4d6ec5b563b85494ca61af39e1e19793,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 74.93
+      value: 76.27
       objectReference: {fileID: 0}
     - target: {fileID: 8095944838556636775, guid: 4d6ec5b563b85494ca61af39e1e19793,
         type: 3}
