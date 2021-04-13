@@ -30,7 +30,6 @@ public class Ball : MonoBehaviour
     void Update()
     {
         timeToReset += Time.deltaTime;
-        Debug.Log("timeToReset: " + timeToReset);
         if (Input.GetKey(KeyCode.UpArrow))
         {
             force += moreForce;

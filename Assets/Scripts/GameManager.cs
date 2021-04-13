@@ -43,7 +43,7 @@ public class GameManager : MonoBehaviour
 
     void CheckGameOver()
     {
-        if (kegelsManager.kegelAlive <= 0 || tries <= 0 && !ball.isMoving)
+        if ((kegelsManager.kegelAlive <= 0 || tries <= 0) && !ball.isMoving)
         {
             scenesManager.ChangeScene("GameOver");
         }
