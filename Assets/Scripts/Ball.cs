@@ -10,6 +10,8 @@ public class Ball : MonoBehaviour
     public float limitMove;
 
     public bool isMoving;
+
+    private float moreForce = 5.0f;
     void Start()
     {
         rb.GetComponent<Rigidbody>();
@@ -26,13 +28,13 @@ public class Ball : MonoBehaviour
         }
         if (Input.GetKey(KeyCode.UpArrow))
         {
-            force += 5.0f;
+            force += moreForce;
         }
         if(force >= 0)
         {
             if (Input.GetKey(KeyCode.DownArrow))
             {
-                force -= 5.0f;
+                force -= moreForce;
             }
         }
         if(force <= 0)
