@@ -21,7 +21,7 @@ public class ScenesManager : MonoBehaviour
         SceneManager.LoadScene(scene);
     }
 
-    public void onClickQuit()
+    public void OnClickQuit()
     {
         Application.Quit();
     }
