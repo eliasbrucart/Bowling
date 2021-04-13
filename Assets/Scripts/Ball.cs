@@ -12,20 +12,20 @@ public class Ball : MonoBehaviour
     public bool isMoving;
 
     private float moreForce = 5.0f;
+    private float timeToReset;
     void Start()
     {
         rb.GetComponent<Rigidbody>();
         transform.position = startPos;
         force = 0.0f;
         isMoving = false;
+        timeToReset = 0.0f;
     }
 
     void Update()
     {
-        if(transform.position.z >= limitMove)
-        {
-            ResetPos();
-        }
+        timeToReset += Time.deltaTime;
+        Debug.Log("timeToReset: " + timeToReset);
         if (Input.GetKey(KeyCode.UpArrow))
         {
             force += moreForce;
@@ -41,12 +41,18 @@ public class Ball : MonoBehaviour
         {
             force = 0.0f;
         }
+        if (transform.position.z >= limitMove || (timeToReset >= 10.0f && isMoving))
+        {
+            ResetPos();
+            timeToReset = 0.0f;
+        }
     }
 
     public void AddForce()
     {
         rb.AddForce(new Vector3(0.0f, 0.0f, force));
         isMoving = true;
+        timeToReset = 0.0f;
     }
 
     public void Right()
