@@ -5,6 +5,8 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     public Ball ball;
+    public KegelsManager kegelsManager;
+    public ScenesManager scenesManager;
 
     public int tries;
     void Start()
@@ -28,6 +30,7 @@ public class GameManager : MonoBehaviour
             tries--;
         }
         ResetTries();
+        CheckGameOver();
     }
 
     void ResetTries()
@@ -35,6 +38,14 @@ public class GameManager : MonoBehaviour
         if(tries <= 0)
         {
             tries = 0;
+        }
+    }
+
+    void CheckGameOver()
+    {
+        if (kegelsManager.kegelAlive <= 0 || tries <= 0 && !ball.isMoving)
+        {
+            scenesManager.ChangeScene("GameOver");
         }
     }
 }
