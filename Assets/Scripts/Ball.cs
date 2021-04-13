@@ -11,6 +11,9 @@ public class Ball : MonoBehaviour
 
     public bool isMoving;
 
+    public float limitLeft;
+    public float limitRight;
+
     private float moreForce = 5.0f;
     private float timeToReset;
     void Start()
@@ -20,6 +23,8 @@ public class Ball : MonoBehaviour
         force = 0.0f;
         isMoving = false;
         timeToReset = 0.0f;
+        limitLeft = -2.9f;
+        limitRight = 2.9f;
     }
 
     void Update()
@@ -57,12 +62,18 @@ public class Ball : MonoBehaviour
 
     public void Right()
     {
-        transform.position += new Vector3(1.0f, 0.0f, 0.0f);
+        if(transform.position.x <= limitRight && !isMoving)
+        {
+            transform.position += new Vector3(1.0f, 0.0f, 0.0f);
+        }
     }
 
     public void Left()
     {
-        transform.position += new Vector3(-1.0f, 0.0f, 0.0f);
+        if(transform.position.x >= limitLeft && !isMoving)
+        {
+            transform.position += new Vector3(-1.0f, 0.0f, 0.0f);
+        }
     }
 
     public void ResetPos()
