@@ -8,6 +8,7 @@ public class UIManager : MonoBehaviour
     public TMP_Text textTries;
     public TMP_Text forceText;
     public TMP_Text aliveKegelsText;
+    public TMP_Text pointsText;
 
     public GameManager gm;
     public Ball ball;
@@ -22,5 +23,6 @@ public class UIManager : MonoBehaviour
         textTries.text = "Tries: " + gm.tries;
         forceText.text = "Force: " + ball.force;
         aliveKegelsText.text = "Kegels Alive: " + km.kegelAlive;
+        pointsText.text = "Points: " + km.points;
     }
 }
