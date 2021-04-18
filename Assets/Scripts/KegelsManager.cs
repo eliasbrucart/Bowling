@@ -8,7 +8,6 @@ public class KegelsManager : MonoBehaviour
     public int kegelAlive;
     public int kegelDead;
 
-    public int points;
     void Start()
     {
         kegelAlive = kegels.Length;
@@ -17,23 +16,21 @@ public class KegelsManager : MonoBehaviour
 
     void Update()
     {
-        KegelAlive();
+
     }
 
-    private void KegelAlive()
+    public void KegelAlive()
     {
         kegelAlive = kegels.Length;
         kegelDead = 0;
-        points = 0;
-        for(int i = 0; i < kegels.Length; i++)
+        for (int i = 0; i < kegels.Length; i++)
         {
             if(kegels[i] != null)
             {
-                if(!kegels[i].alive)
+                if(kegels[i].CheckKegelAlive())
                 {
                     kegelAlive--;
                     kegelDead++;
-                    points += 10;
                 }
             }
         }

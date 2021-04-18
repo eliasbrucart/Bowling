@@ -5,20 +5,24 @@ using UnityEngine;
 public class Kegel : MonoBehaviour
 {
     public bool alive;
-    public int points;
     void Start()
     {
         alive = true;
-        points = 0;
     }
 
     void Update()
+    {
+        
+    }
+
+    public bool CheckKegelAlive()
     {
         if (transform.rotation.x >= 0.5f || transform.rotation.x <= -0.5f || transform.rotation.z >= 0.5f || transform.rotation.z <= -0.5f)
         {
             alive = false;
             gameObject.SetActive(false);
-            points += 10;
+            return true;
         }
+        return false;
     }
 }

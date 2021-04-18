@@ -23,6 +23,6 @@ public class UIManager : MonoBehaviour
         textTries.text = "Tries: " + gm.tries;
         forceText.text = "Force: " + ball.force;
         aliveKegelsText.text = "Kegels Alive: " + km.kegelAlive;
-        pointsText.text = "Points: " + km.points;
+        pointsText.text = "Points: " + gm.points;
     }
 }

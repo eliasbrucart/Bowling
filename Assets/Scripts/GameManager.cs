@@ -12,6 +12,7 @@ public class GameManager : MonoBehaviour
     public ScenesManager scenesManager;
 
     public int tries;
+    public int points;
 
     private void Awake()
     {
@@ -27,13 +28,15 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
-        
+        points = 0;
     }
 
     void Update()
     {
         MoveBall();
         ThrowBall();
+        kegelsManager.KegelAlive();
+        Points();
         ResetTries();
         CheckGameOver();
     }
@@ -56,6 +59,18 @@ public class GameManager : MonoBehaviour
         {
             ball.AddForce();
             tries--;
+        }
+    }
+
+    void Points()
+    {
+        points = 0;
+        for (int i = 0; i < kegelsManager.kegels.Length; i++)
+        {
+            if (kegelsManager.kegels[i].CheckKegelAlive())
+            {
+                points += 10;
+            }
         }
     }
 

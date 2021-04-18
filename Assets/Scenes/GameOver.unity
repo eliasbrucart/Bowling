@@ -264,8 +264,6 @@ GameObject:
   - component: {fileID: 448049378}
   - component: {fileID: 448049377}
   - component: {fileID: 448049381}
-  - component: {fileID: 448049382}
-  - component: {fileID: 448049383}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -369,36 +367,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf72d8dc1825c894aaab2fbee7307d16, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &448049382
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 448049376}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 35996f63464773d4ead69ab457b5db4b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  poitnsEarned: {fileID: 1265790125}
-  km: {fileID: 448049383}
---- !u!114 &448049383
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 448049376}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7eeff53b5c3aa834a87595624c5442ed, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  kegels: []
-  kegelAlive: 0
-  kegelDead: 0
-  points: 0
 --- !u!1 &469790303
 GameObject:
   m_ObjectHideFlags: 0
