@@ -4,17 +4,41 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
+    public static GameManager instance;
+    public static GameManager Instance { get { return instance; } }
+
     public Ball ball;
     public KegelsManager kegelsManager;
     public ScenesManager scenesManager;
 
     public int tries;
+
+    private void Awake()
+    {
+        if(instance != null && instance != this)
+        {
+            Destroy(this.gameObject);
+        }
+        else
+        {
+            instance = this;
+        }
+    }
+
     void Start()
     {
         
     }
 
     void Update()
+    {
+        MoveBall();
+        ThrowBall();
+        ResetTries();
+        CheckGameOver();
+    }
+
+    void MoveBall()
     {
         if (Input.GetKeyDown(KeyCode.LeftArrow))
         {
@@ -24,13 +48,15 @@ public class GameManager : MonoBehaviour
         {
             ball.Right();
         }
+    }
+
+    void ThrowBall()
+    {
         if (Input.GetKeyDown(KeyCode.Space) && tries <= 3 && tries > 0 && !ball.isMoving && ball.force > 0)
         {
             ball.AddForce();
             tries--;
         }
-        ResetTries();
-        CheckGameOver();
     }
 
     void ResetTries()

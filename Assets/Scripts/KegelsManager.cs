@@ -13,7 +13,6 @@ public class KegelsManager : MonoBehaviour
     {
         kegelAlive = kegels.Length;
         kegelDead = 0;
-        points = 0;
     }
 
     void Update()

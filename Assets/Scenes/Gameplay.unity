@@ -1504,6 +1504,7 @@ MonoBehaviour:
   - {fileID: 1414810218}
   kegelAlive: 0
   kegelDead: 0
+  points: 0
 --- !u!1001 &1124934793
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1978,7 +1979,6 @@ MonoBehaviour:
   gm: {fileID: 1391805906}
   ball: {fileID: 296343383}
   km: {fileID: 1084246466}
-  kegel: {fileID: 53788011}
 --- !u!114 &1414810218 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 3653948440992592141, guid: 4d6ec5b563b85494ca61af39e1e19793,
