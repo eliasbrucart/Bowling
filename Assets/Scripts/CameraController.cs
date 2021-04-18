@@ -7,9 +7,10 @@ public class CameraController : MonoBehaviour
     public Vector3 offset;
 
     public Transform ballTransform;
+    public Vector3 startPosition = new Vector3(0.0f, 3.0f, -7.0f);
     void Start()
     {
-        offset = new Vector3(0.0f, 3.0f, -7.0f);
+        offset = startPosition;
     }
 
     void Update()
