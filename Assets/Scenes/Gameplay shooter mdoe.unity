@@ -988,11 +988,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 753768485}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 99cc926a7fbbb244a89b4e24897bf638, type: 3}
+  m_Script: {fileID: 11500000, guid: 73c017fa20ddf754fb1758be88d853a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   cam: {fileID: 1039533276}
-  objectToInstance: {fileID: 0}
+  explosionGO: {fileID: 1000011797152326, guid: acf39d9f4addf294d93fa56fa373961b,
+    type: 3}
 --- !u!1001 &785681324
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1253,7 +1254,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1039533274}
   m_LocalRotation: {x: 0.13806377, y: -0, z: -0, w: 0.9904234}
-  m_LocalPosition: {x: 0, y: 3.244, z: 9.035}
+  m_LocalPosition: {x: 0, y: 3.244, z: 43.245}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -1640,7 +1641,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400004, guid: 47509307932d1e140a2b4d9024d228e4, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 10.61
+      value: 44.82
       objectReference: {fileID: 0}
     - target: {fileID: 400004, guid: 47509307932d1e140a2b4d9024d228e4, type: 3}
       propertyPath: m_LocalRotation.w
