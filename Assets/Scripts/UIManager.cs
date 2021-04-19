@@ -21,7 +21,8 @@ public class UIManager : MonoBehaviour
     void Update()
     {
         textTries.text = "Tries: " + gm.tries;
-        forceText.text = "Force: " + ball.force;
+        if(ball != null)
+            forceText.text = "Force: " + ball.force;
         aliveKegelsText.text = "Kegels Alive: " + km.kegelAlive;
         pointsText.text = "Points: " + gm.points;
     }

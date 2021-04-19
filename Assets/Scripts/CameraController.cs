@@ -20,6 +20,7 @@ public class CameraController : MonoBehaviour
 
     private void LateUpdate()
     {
-        transform.position = ballTransform.position + offset;
+        if(ballTransform != null)
+            transform.position = ballTransform.position + offset;
     }
 }
