@@ -7,6 +7,12 @@ public class ShootWithGun : MonoBehaviour
     [SerializeField]
     private Camera cam;
 
+    [SerializeField]
+    private int distanceRay;
+
+    [SerializeField]
+    private int offsetCrossfire;
+
     public GameObject explosionGO;
     public GameObject crossfire;
     void Start()
@@ -23,12 +29,13 @@ public class ShootWithGun : MonoBehaviour
 
         Ray ray = cam.ScreenPointToRay(mousePos);
 
-        Debug.DrawRay(ray.origin, ray.direction * 40, Color.yellow);
+        Debug.DrawRay(ray.origin, ray.direction * distanceRay, Color.yellow);
+        crossfire.transform.position = ray.origin + (ray.direction * (distanceRay - offsetCrossfire));
 
         if (Input.GetMouseButtonDown(0))
         {
             RaycastHit hit;
-            if(Physics.Raycast(ray, out hit, 40))
+            if(Physics.Raycast(ray, out hit, distanceRay))
             {
                 GameObject explosion = Instantiate(explosionGO, hit.point, Quaternion.identity);
                 explosion.GetComponent<ParticleSystem>().Play();
