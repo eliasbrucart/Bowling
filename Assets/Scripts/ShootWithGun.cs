@@ -15,6 +15,15 @@ public class ShootWithGun : MonoBehaviour
 
     public GameObject explosionGO;
     public GameObject crossfire;
+
+    [SerializeField]private int amountOfKegels;
+
+    public GameObject kegelPrefab;
+    public List<GameObject> miniKegels;
+
+    [SerializeField]private int explosionForce;
+
+    public ScenesManager scenesManager;
     void Start()
     {
         cam = Camera.main;
@@ -37,8 +46,30 @@ public class ShootWithGun : MonoBehaviour
             RaycastHit hit;
             if(Physics.Raycast(ray, out hit, distanceRay))
             {
-                GameObject explosion = Instantiate(explosionGO, hit.point, Quaternion.identity);
-                explosion.GetComponent<ParticleSystem>().Play();
+                if(hit.collider.gameObject.layer == LayerMask.NameToLayer("Kegel"))
+                {
+                    Rigidbody rigidBodyHit = hit.collider.gameObject.GetComponent<Rigidbody>();
+                    rigidBodyHit.AddExplosionForce(explosionForce, hit.point, 2, 2, ForceMode.Impulse);
+                    GameObject explosion = Instantiate(explosionGO, hit.point, Quaternion.identity);
+                    explosion.GetComponent<ParticleSystem>().Play();
+                    for (int i = 0; i < amountOfKegels; i++)
+                    {
+                        GameObject kegelGO = Instantiate(kegelPrefab, hit.transform.position, Quaternion.identity, hit.transform);
+                        miniKegels.Add(kegelGO);
+                    }
+
+                    for (int i = 0; i < amountOfKegels; i++)
+                    {
+                        if (miniKegels[i] != null)
+                        {
+                            miniKegels[i].GetComponent<Rigidbody>().AddExplosionForce(explosionForce, hit.point, 2, 2, ForceMode.Impulse);
+                        }
+                    }
+                }
+                else
+                {
+                    scenesManager.ChangeScene("GameOver");
+                }
             }
         }
     }

@@ -698,6 +698,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Kegels Limiter Light
       objectReference: {fileID: 0}
+    - target: {fileID: 8754959416159046632, guid: d9971a885d86c7241a84ca39466ce608,
+        type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
     - target: {fileID: 8754959416159046638, guid: d9971a885d86c7241a84ca39466ce608,
         type: 3}
       propertyPath: m_RootOrder
@@ -992,11 +997,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cam: {fileID: 1039533276}
-  distanceRay: 40
+  distanceRay: 35
   offsetCrossfire: 15
   explosionGO: {fileID: 1000011797152326, guid: acf39d9f4addf294d93fa56fa373961b,
     type: 3}
   crossfire: {fileID: 922783081}
+  amountOfKegels: 10
+  kegelPrefab: {fileID: 139516, guid: 4246925f0393c430189bb4ceba36dc8a, type: 3}
+  miniKegels: []
+  explosionForce: 10
+  scenesManager: {fileID: 1040127731}
 --- !u!1001 &785681324
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1158,6 +1168,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Wall 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 7600624285468202163, guid: 7be0a526f95b16541a8ff2a250dc95ed,
+        type: 3}
+      propertyPath: m_Layer
+      value: 9
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7be0a526f95b16541a8ff2a250dc95ed, type: 3}
@@ -1334,6 +1349,49 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 15.872001, y: 0, z: 0}
+--- !u!1 &1040127730
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1040127732}
+  - component: {fileID: 1040127731}
+  m_Layer: 0
+  m_Name: ScenesManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1040127731
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1040127730}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bf72d8dc1825c894aaab2fbee7307d16, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &1040127732
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1040127730}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 3.1925943, y: 5.983375, z: 16.178833}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 26
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1048696083
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1779,7 +1837,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ball: {fileID: 0}
   kegelsManager: {fileID: 1084246466}
-  scenesManager: {fileID: 1391805908}
+  scenesManager: {fileID: 1040127731}
   tries: 3
   points: 0
 --- !u!4 &1391805907
@@ -1819,6 +1877,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Wall 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6599217994699600939, guid: 9a2aaabfc65335a4380c5b93bd61b74c,
+        type: 3}
+      propertyPath: m_Layer
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 6599217994699600943, guid: 9a2aaabfc65335a4380c5b93bd61b74c,
         type: 3}
@@ -2795,10 +2858,20 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 9f2aa65c2d12b07499c8d42e0480c980, type: 2}
+    - target: {fileID: 582054941184353469, guid: 5491ea1512888c64baa9995ab5252eb3,
+        type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
     - target: {fileID: 582054941508002584, guid: 5491ea1512888c64baa9995ab5252eb3,
         type: 3}
       propertyPath: m_Name
       value: Kegels Limiter
+      objectReference: {fileID: 0}
+    - target: {fileID: 582054941508002584, guid: 5491ea1512888c64baa9995ab5252eb3,
+        type: 3}
+      propertyPath: m_Layer
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 582054941508002591, guid: 5491ea1512888c64baa9995ab5252eb3,
         type: 3}
@@ -2855,6 +2928,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 582054942259608777, guid: 5491ea1512888c64baa9995ab5252eb3,
+        type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
     - target: {fileID: 582054942259608783, guid: 5491ea1512888c64baa9995ab5252eb3,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -2865,11 +2943,21 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 9f2aa65c2d12b07499c8d42e0480c980, type: 2}
+    - target: {fileID: 582054942511811514, guid: 5491ea1512888c64baa9995ab5252eb3,
+        type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
     - target: {fileID: 582054942560794505, guid: 5491ea1512888c64baa9995ab5252eb3,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 9f2aa65c2d12b07499c8d42e0480c980, type: 2}
+    - target: {fileID: 582054942560794507, guid: 5491ea1512888c64baa9995ab5252eb3,
+        type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5491ea1512888c64baa9995ab5252eb3, type: 3}
 --- !u!1001 &2353331743613022757
@@ -3018,6 +3106,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: HardGames prefab
       objectReference: {fileID: 0}
+    - target: {fileID: 3135038897880539620, guid: de75e728aeebe57409e5ae711a7c6bf1,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: de75e728aeebe57409e5ae711a7c6bf1, type: 3}
 --- !u!1001 &6599217994864272434
@@ -3031,6 +3124,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Wall 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6599217994699600939, guid: 9a2aaabfc65335a4380c5b93bd61b74c,
+        type: 3}
+      propertyPath: m_Layer
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 6599217994699600943, guid: 9a2aaabfc65335a4380c5b93bd61b74c,
         type: 3}
@@ -3225,6 +3323,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Wall 3
       objectReference: {fileID: 0}
+    - target: {fileID: 7600624285468202163, guid: 7be0a526f95b16541a8ff2a250dc95ed,
+        type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7be0a526f95b16541a8ff2a250dc95ed, type: 3}
 --- !u!1001 &8095944838703317736
@@ -3234,10 +3337,60 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 8095944837511952704, guid: 4d6ec5b563b85494ca61af39e1e19793,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 8095944837511952704, guid: 4d6ec5b563b85494ca61af39e1e19793,
+        type: 3}
+      propertyPath: m_TagString
+      value: Kegel
+      objectReference: {fileID: 0}
+    - target: {fileID: 8095944837511965488, guid: 4d6ec5b563b85494ca61af39e1e19793,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 8095944838475003573, guid: 4d6ec5b563b85494ca61af39e1e19793,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 8095944838475003573, guid: 4d6ec5b563b85494ca61af39e1e19793,
+        type: 3}
+      propertyPath: m_TagString
+      value: Kegel
+      objectReference: {fileID: 0}
+    - target: {fileID: 8095944838475015365, guid: 4d6ec5b563b85494ca61af39e1e19793,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 8095944838556334737, guid: 4d6ec5b563b85494ca61af39e1e19793,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 8095944838556346593, guid: 4d6ec5b563b85494ca61af39e1e19793,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 8095944838556346593, guid: 4d6ec5b563b85494ca61af39e1e19793,
+        type: 3}
+      propertyPath: m_TagString
+      value: Kegel
+      objectReference: {fileID: 0}
     - target: {fileID: 8095944838556636774, guid: 4d6ec5b563b85494ca61af39e1e19793,
         type: 3}
       propertyPath: m_Name
       value: Kegels
+      objectReference: {fileID: 0}
+    - target: {fileID: 8095944838556636774, guid: 4d6ec5b563b85494ca61af39e1e19793,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 8095944838556636775, guid: 4d6ec5b563b85494ca61af39e1e19793,
         type: 3}
@@ -3293,6 +3446,111 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8095944838800315908, guid: 4d6ec5b563b85494ca61af39e1e19793,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 8095944838800315908, guid: 4d6ec5b563b85494ca61af39e1e19793,
+        type: 3}
+      propertyPath: m_TagString
+      value: Kegel
+      objectReference: {fileID: 0}
+    - target: {fileID: 8095944838800327796, guid: 4d6ec5b563b85494ca61af39e1e19793,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 8095944839037818629, guid: 4d6ec5b563b85494ca61af39e1e19793,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 8095944839037818629, guid: 4d6ec5b563b85494ca61af39e1e19793,
+        type: 3}
+      propertyPath: m_TagString
+      value: Kegel
+      objectReference: {fileID: 0}
+    - target: {fileID: 8095944839037830517, guid: 4d6ec5b563b85494ca61af39e1e19793,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 8095944839064336634, guid: 4d6ec5b563b85494ca61af39e1e19793,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 8095944839064349322, guid: 4d6ec5b563b85494ca61af39e1e19793,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 8095944839064349322, guid: 4d6ec5b563b85494ca61af39e1e19793,
+        type: 3}
+      propertyPath: m_TagString
+      value: Kegel
+      objectReference: {fileID: 0}
+    - target: {fileID: 8095944839307011838, guid: 4d6ec5b563b85494ca61af39e1e19793,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 8095944839307031694, guid: 4d6ec5b563b85494ca61af39e1e19793,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 8095944839307031694, guid: 4d6ec5b563b85494ca61af39e1e19793,
+        type: 3}
+      propertyPath: m_TagString
+      value: Kegel
+      objectReference: {fileID: 0}
+    - target: {fileID: 8095944839324576930, guid: 4d6ec5b563b85494ca61af39e1e19793,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 8095944839324576930, guid: 4d6ec5b563b85494ca61af39e1e19793,
+        type: 3}
+      propertyPath: m_TagString
+      value: Kegel
+      objectReference: {fileID: 0}
+    - target: {fileID: 8095944839324597970, guid: 4d6ec5b563b85494ca61af39e1e19793,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 8095944839364384072, guid: 4d6ec5b563b85494ca61af39e1e19793,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 8095944839364396856, guid: 4d6ec5b563b85494ca61af39e1e19793,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 8095944839364396856, guid: 4d6ec5b563b85494ca61af39e1e19793,
+        type: 3}
+      propertyPath: m_TagString
+      value: Kegel
+      objectReference: {fileID: 0}
+    - target: {fileID: 8095944839618109593, guid: 4d6ec5b563b85494ca61af39e1e19793,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 8095944839618130665, guid: 4d6ec5b563b85494ca61af39e1e19793,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 8095944839618130665, guid: 4d6ec5b563b85494ca61af39e1e19793,
+        type: 3}
+      propertyPath: m_TagString
+      value: Kegel
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4d6ec5b563b85494ca61af39e1e19793, type: 3}
