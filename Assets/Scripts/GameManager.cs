@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    public static GameManager instance;
-    public static GameManager Instance { get { return instance; } }
+    public static GameManager instanceGameManager;
+    public static GameManager Instance { get { return instanceGameManager; } }
 
     public Ball ball;
     public KegelsManager kegelsManager;
@@ -16,13 +16,13 @@ public class GameManager : MonoBehaviour
 
     private void Awake()
     {
-        if(instance != null && instance != this)
+        if(instanceGameManager != null && instanceGameManager != this)
         {
             Destroy(this.gameObject);
         }
         else
         {
-            instance = this;
+            instanceGameManager = this;
         }
     }
 
@@ -72,6 +72,11 @@ public class GameManager : MonoBehaviour
                 points += 10;
             }
         }
+    }
+
+    public int GetPoints()
+    {
+        return points;
     }
 
     void ResetTries()

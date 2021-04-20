@@ -6,7 +6,6 @@ using UnityEngine;
 public class UIGameOver : MonoBehaviour
 {
     public TMP_Text poitnsEarned;
-    public GameManager gm;
     void Start()
     {
         
@@ -14,6 +13,6 @@ public class UIGameOver : MonoBehaviour
 
     void Update()
     {
-        poitnsEarned.text = "Points Earned: " + gm.points;
+        poitnsEarned.text = "Points Earned: " + GameManager.instanceGameManager.GetPoints();
     }
 }
