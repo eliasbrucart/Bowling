@@ -1842,6 +1842,7 @@ MonoBehaviour:
   scenesManager: {fileID: 1040127731}
   tries: 3
   points: 0
+  mode: 1
 --- !u!4 &1391805907
 Transform:
   m_ObjectHideFlags: 0

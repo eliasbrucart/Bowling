@@ -14,6 +14,14 @@ public class GameManager : MonoBehaviour
     public int tries;
     public int points;
 
+    private enum gameMode
+    {
+        normalMode,
+        shooterMode
+    }
+
+    [SerializeField] private gameMode mode;
+
     private void Awake()
     {
         if(instanceGameManager != null && instanceGameManager != this)
@@ -89,9 +97,18 @@ public class GameManager : MonoBehaviour
 
     void CheckGameOver()
     {
-        if ((kegelsManager.kegelAlive <= 0 || tries <= 0) && !ball.isMoving)
+        if(mode == gameMode.normalMode)
         {
-            scenesManager.ChangeScene("GameOver");
+            if ((kegelsManager.kegelAlive <= 0 || tries <= 0) && !ball.isMoving)
+            {
+                scenesManager.ChangeScene("GameOver");
+            }
+        }else if(mode == gameMode.shooterMode)
+        {
+            if (kegelsManager.kegelAlive <= 0 || tries <= 0)
+            {
+                scenesManager.ChangeScene("GameOver");
+            }
         }
     }
 }
