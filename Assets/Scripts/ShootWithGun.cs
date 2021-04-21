@@ -16,12 +16,13 @@ public class ShootWithGun : MonoBehaviour
     public GameObject explosionGO;
     public GameObject crossfire;
 
-    [SerializeField]private int amountOfKegels;
+    [SerializeField] private int amountOfKegels;
 
-    public GameObject kegelPrefab;
-    public List<GameObject> miniKegels;
+    public Kegel kegelPrefab;
+    public List<Kegel> miniKegels;
 
-    [SerializeField]private int explosionForce;
+    [SerializeField] private int explosionForce;
+    [SerializeField] private float timeToDestroy;
 
     public ScenesManager scenesManager;
     void Start()
@@ -43,6 +44,7 @@ public class ShootWithGun : MonoBehaviour
 
         if (Input.GetMouseButtonDown(0))
         {
+            GameManager.instanceGameManager.tries--;
             RaycastHit hit;
             if(Physics.Raycast(ray, out hit, distanceRay))
             {
@@ -50,15 +52,15 @@ public class ShootWithGun : MonoBehaviour
                 {
                     Rigidbody rigidBodyHit = hit.collider.gameObject.GetComponent<Rigidbody>();
                     rigidBodyHit.AddExplosionForce(explosionForce, hit.point, 2, 2, ForceMode.Impulse);
-                    GameObject explosion = Instantiate(explosionGO, hit.point, Quaternion.identity);
+                    GameObject explosion = Instantiate(explosionGO, hit.point, Quaternion.identity, hit.transform);
                     explosion.GetComponent<ParticleSystem>().Play();
                     for (int i = 0; i < amountOfKegels; i++)
                     {
-                        GameObject kegelGO = Instantiate(kegelPrefab, hit.transform.position, Quaternion.identity, hit.transform);
+                        Kegel kegelGO = Instantiate(kegelPrefab, hit.transform.position, Quaternion.identity, hit.transform);
                         miniKegels.Add(kegelGO);
                     }
 
-                    for (int i = 0; i < amountOfKegels; i++)
+                    for (int i = 0; i < miniKegels.Count; i++)
                     {
                         if (miniKegels[i] != null)
                         {
@@ -69,6 +71,16 @@ public class ShootWithGun : MonoBehaviour
                 else
                 {
                     scenesManager.ChangeScene("GameOver");
+                }
+            }
+            for(int i=0; i < miniKegels.Count; i++)
+            {
+                if (miniKegels[i].timer <= timeToDestroy - 0.1f)
+                    miniKegels[i].timer += Time.deltaTime;
+                else
+                {
+                    miniKegels[i].timer = 0.0f;
+                    Destroy(miniKegels[i].gameObject);
                 }
             }
         }

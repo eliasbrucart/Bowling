@@ -5,6 +5,8 @@ using UnityEngine;
 public class Kegel : MonoBehaviour
 {
     public bool alive;
+
+    public float timer;
     void Start()
     {
         alive = true;
@@ -12,7 +14,7 @@ public class Kegel : MonoBehaviour
 
     void Update()
     {
-        
+
     }
 
     public bool CheckKegelAlive()

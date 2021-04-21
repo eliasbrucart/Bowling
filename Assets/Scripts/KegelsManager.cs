@@ -7,7 +7,7 @@ public class KegelsManager : MonoBehaviour
     public Kegel[] kegels;
     public int kegelAlive;
     public int kegelDead;
-
+    
     void Start()
     {
         kegelAlive = kegels.Length;
@@ -25,12 +25,15 @@ public class KegelsManager : MonoBehaviour
         kegelDead = 0;
         for (int i = 0; i < kegels.Length; i++)
         {
-            if(kegels[i] != null)
+            if(kegels[i] != null && kegels[i].gameObject != null)
             {
-                if(kegels[i].CheckKegelAlive())
+                if (kegels[i].gameObject.activeSelf)
                 {
-                    kegelAlive--;
-                    kegelDead++;
+                    if (kegels[i].CheckKegelAlive())
+                    {
+                        kegelAlive--;
+                        kegelDead++;
+                    }
                 }
             }
         }
